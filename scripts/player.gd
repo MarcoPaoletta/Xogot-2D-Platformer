@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal on_coin_collected(body_rid: RID)
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -23,3 +24,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+func _on_hit_box_body_shape_entered(body_rid: RID, body: Node2D, _body_shape_index: int, _local_shape_index: int) -> void:
+	if body.is_in_group("coins"):
+		on_coin_collected.emit(body_rid)
+	if body.is_in_group("spikes"):
+		get_tree().call_deferred("reload_current_scene")
