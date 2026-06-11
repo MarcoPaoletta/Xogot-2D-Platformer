@@ -3,9 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://dgskl5s8tqqlw" path="res://assets/2 Locations/Backgrounds/5.png" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dnh66b3kkwoow" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bxaenqgijly67" path="res://scripts/main.gd" id="1_o6xl0"]
+[ext_resource type="Script" uid="uid://du88gukxa1tjx" path="res://scripts/background.gd" id="2_sugp2"]
 [ext_resource type="Texture2D" uid="uid://cyxtjfsigqw4o" path="res://assets/2 Locations/Tiles/Tileset.png" id="4_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://1min6lkcnvxo" path="res://assets/3 Objects/Gems/1.png" id="5_tipki"]
 [ext_resource type="Texture2D" uid="uid://c5d6720psd0vw" path="res://assets/6 Traps/4.png" id="7_choun"]
+[ext_resource type="PackedScene" uid="uid://bxl3l2e0a6ssk" path="res://scenes/coin.tscn" id="7_o6xl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya4ey"]
 texture = ExtResource("4_o6xl0")
@@ -228,17 +229,6 @@ texture = ExtResource("4_o6xl0")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eb6dy"]
-texture = ExtResource("5_tipki")
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8y0u"]
 texture = ExtResource("7_choun")
 1:2/0 = 0
@@ -253,7 +243,6 @@ texture = ExtResource("7_choun")
 [sub_resource type="TileSet" id="TileSet_jkv2x"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ya4ey")
-sources/1 = SubResource("TileSetAtlasSource_eb6dy")
 sources/3 = SubResource("TileSetAtlasSource_a8y0u")
 
 [node name="Main" type="Node2D" unique_id=1736342183]
@@ -285,6 +274,7 @@ scale = Vector2(12.35, 8.766666)
 texture = ExtResource("1_0wfyh")
 region_enabled = true
 region_rect = Rect2(0, 0, 1200, 1200)
+script = ExtResource("2_sugp2")
 
 [node name="Levels" type="Node2D" parent="." unique_id=1793011968]
 
@@ -293,11 +283,6 @@ region_rect = Rect2(0, 0, 1200, 1200)
 [node name="Platforms" type="TileMapLayer" parent="Levels/Level1" unique_id=1684993020]
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAAABMAAAAAAAAAAAAAABQAAAAAAAEAAAAAABUAAAAAAAIAAAAjABMAAAACAAAAAAAjABQAAAACAAEAAAAjABUAAAACAAIAAAABABMAAAABAAAAAAABABQAAAABAAEAAAABABUAAAABAAIAAAACABMAAAABAAAAAAACABQAAAABAAEAAAACABUAAAABAAIAAAADABMAAAABAAAAAAADABQAAAABAAEAAAADABUAAAABAAIAAAAEABMAAAABAAAAAAAEABQAAAABAAEAAAAEABUAAAABAAIAAAAFABMAAAABAAAAAAAFABQAAAABAAEAAAAFABUAAAABAAIAAAAGABMAAAABAAAAAAAGABQAAAABAAEAAAAGABUAAAABAAIAAAAHABMAAAABAAAAAAAHABQAAAABAAEAAAAHABUAAAABAAIAAAAIABMAAAABAAAAAAAIABQAAAABAAEAAAAIABUAAAABAAIAAAAJABMAAAABAAAAAAAJABQAAAABAAEAAAAJABUAAAABAAIAAAAKABMAAAABAAAAAAAKABQAAAABAAEAAAAKABUAAAABAAIAAAALABMAAAABAAAAAAALABQAAAABAAEAAAALABUAAAABAAIAAAAMABMAAAABAAAAAAAMABQAAAABAAEAAAAMABUAAAABAAIAAAANABMAAAABAAAAAAANABQAAAABAAEAAAANABUAAAABAAIAAAAOABMAAAABAAAAAAAOABQAAAABAAEAAAAOABUAAAABAAIAAAAPABMAAAABAAAAAAAPABQAAAABAAEAAAAPABUAAAABAAIAAAAQABMAAAABAAAAAAAQABQAAAABAAEAAAAQABUAAAABAAIAAAARABMAAAABAAAAAAARABQAAAABAAEAAAARABUAAAABAAIAAAASABMAAAABAAAAAAASABQAAAABAAEAAAASABUAAAABAAIAAAATABMAAAABAAAAAAATABQAAAABAAEAAAATABUAAAABAAIAAAAUABMAAAABAAAAAAAUABQAAAABAAEAAAAUABUAAAABAAIAAAAVABMAAAABAAAAAAAVABQAAAABAAEAAAAVABUAAAABAAIAAAAWABMAAAABAAAAAAAWABQAAAABAAEAAAAWABUAAAABAAIAAAAXABMAAAABAAAAAAAXABQAAAABAAEAAAAXABUAAAABAAIAAAAYABMAAAABAAAAAAAYABQAAAABAAEAAAAYABUAAAABAAIAAAAZABMAAAABAAAAAAAZABQAAAABAAEAAAAZABUAAAABAAIAAAAaABMAAAABAAAAAAAaABQAAAABAAEAAAAaABUAAAABAAIAAAAbABMAAAABAAAAAAAbABQAAAABAAEAAAAbABUAAAABAAIAAAAcABMAAAABAAAAAAAcABQAAAABAAEAAAAcABUAAAABAAIAAAAdABMAAAABAAAAAAAdABQAAAABAAEAAAAdABUAAAABAAIAAAAeABMAAAABAAAAAAAeABQAAAABAAEAAAAeABUAAAABAAIAAAAfABMAAAABAAAAAAAfABQAAAABAAEAAAAfABUAAAABAAIAAAAgABMAAAABAAAAAAAgABQAAAABAAEAAAAgABUAAAABAAIAAAAhABMAAAABAAAAAAAhABQAAAABAAEAAAAhABUAAAABAAIAAAAiABMAAAABAAAAAAAiABQAAAABAAEAAAAiABUAAAABAAIAAAA=")
-tile_set = SubResource("TileSet_jkv2x")
-
-[node name="Coins" type="TileMapLayer" parent="Levels/Level1" unique_id=1600401224 groups=["coins"]]
-scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAAXABAAAQAAAAAAAAAYABAAAQAAAAAAAAAZABAAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_jkv2x")
 
 [node name="Spikes" type="TileMapLayer" parent="Levels/Level1" unique_id=95125509 groups=["spikes"]]
@@ -312,6 +297,17 @@ position = Vector2(122, 549)
 position = Vector2(588, 523)
 
 [node name="Timer" type="Timer" parent="." unique_id=486647780]
+
+[node name="Coins" type="Node2D" parent="." unique_id=284130885]
+
+[node name="Coin" parent="Coins" unique_id=1008874518 instance=ExtResource("7_o6xl0")]
+position = Vector2(768, 472)
+
+[node name="Coin2" parent="Coins" unique_id=227648690 instance=ExtResource("7_o6xl0")]
+position = Vector2(814, 472)
+
+[node name="Coin3" parent="Coins" unique_id=1884933928 instance=ExtResource("7_o6xl0")]
+position = Vector2(860, 472)
 
 [connection signal="on_coin_collected" from="Player" to="." method="_on_player_on_coin_collected"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

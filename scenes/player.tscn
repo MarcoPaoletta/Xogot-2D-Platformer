@@ -29,4 +29,5 @@ debug_color = Color(0.9423964, 7.893444e-06, 0.60854083, 0.41960785)
 position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_qhqgy")
 
-[connection signal="body_shape_entered" from="HitBox" to="." method="_on_hit_box_body_shape_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
