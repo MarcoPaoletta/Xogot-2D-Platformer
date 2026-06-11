@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var time_label = $CanvasLayer/TimeLabel
 
-var initial_time = 5
+var initial_time = 10
 var time_left = 0
 
 var coins_to_collect = 0
@@ -12,7 +12,7 @@ func _ready() -> void:
 	time_left = initial_time
 	time_label.text = str(time_left)
 	
-	coins_to_collect = $Coins.get_child_count()
+	coins_to_collect = $Levels/Level1/Coins.get_child_count()
 
 	$Player.position = $Levels/Level1/SpawnPoint.position
 
