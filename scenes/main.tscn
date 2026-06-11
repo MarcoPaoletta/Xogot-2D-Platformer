@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bpsejmoonmxdf"]
+
+[ext_resource type="Texture2D" uid="uid://dgskl5s8tqqlw" path="res://assets/2 Locations/Backgrounds/5.png" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dnh66b3kkwoow" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://du88gukxa1tjx" path="res://scripts/background.gd" id="2_sugp2"]
+
+[node name="Main" type="Node2D" unique_id=1736342183]
+texture_filter = 1
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1961289841]
+texture_repeat = 2
+position = Vector2(487.75, 268)
+scale = Vector2(12.35, 8.766666)
+texture = ExtResource("1_0wfyh")
+region_enabled = true
+region_rect = Rect2(0, 0, 1200, 1200)
+script = ExtResource("2_sugp2")
+
+[node name="Player" parent="." unique_id=1516766325 instance=ExtResource("1_o5qli")]
+position = Vector2(588, 523)
+
+[editable path="Player"]
