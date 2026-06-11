@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://daldwgm58bq8j" path="res://assets/1 Main Characters/2/Idle2.png" id="2_g2els"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
-radius = 19.0
-height = 60.0
+radius = 4.0
+height = 38.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
-radius = 23.0
-height = 68.0
+radius = 14.0
+height = 62.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1516766325]
 script = ExtResource("1_3vyb7")
@@ -20,6 +20,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1605202362]
+position = Vector2(0, 11)
 shape = SubResource("CapsuleShape2D_g2els")
 debug_color = Color(0.9423964, 7.893444e-06, 0.60854083, 0.41960785)
 
